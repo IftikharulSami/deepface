@@ -1,25 +1,25 @@
 from flask import Flask, render_template, Response, request, url_for
 
-from services import FR_Services
+# from services import FR_Services
 
 app = Flask(__name__)
 # cap = cv2.VideoCapture(0)
 # app.config["IMAGE_UPLOADS"] = "Train"
-ser = FR_Services()
-@app.route('/', methods=['GET', 'POST'])
+# ser = FR_Services()
+@app.route('/')#, methods=['GET', 'POST'])
 def home():
-    if request.method == 'POST':
-        if request.files:
-            if (request.files['unknown_image'] and not request.files['new_image']):
-                unknown_image = request.files['unknown_image']
-                label = ser.face_recognize(unknown_image)
-                return render_template('index.html', label=label)
-            elif (not request.files['unknown_image'] and request.files['new_image']):
-                new_image = request.files['new_image']
-                value = request.form['new_label']
-                value = value.title()
-                reply = ser.retrain(new_image, value)
-                return render_template('index.html', reply=reply)
+#     if request.method == 'POST':
+#         if request.files:
+#             if (request.files['unknown_image'] and not request.files['new_image']):
+#                 unknown_image = request.files['unknown_image']
+#                 label = ser.face_recognize(unknown_image)
+#                 return render_template('index.html', label=label)
+#             elif (not request.files['unknown_image'] and request.files['new_image']):
+#                 new_image = request.files['new_image']
+#                 value = request.form['new_label']
+#                 value = value.title()
+#                 reply = ser.retrain(new_image, value)
+#                 return render_template('index.html', reply=reply)
     return render_template('index.html')
 
 # @app.route('/face_recognition/')
