@@ -10,3 +10,4 @@ keras==2.3.1
 Flask>=1.1.2
 mtcnn>=0.1.0
 lightgbm>=2.3.1
+gunicorn
