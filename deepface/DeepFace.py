@@ -12,7 +12,7 @@ import pandas as pd
 from tqdm import tqdm
 import pickle
 
-from deepface.basemodels import VGGFace, OpenFace, Facenet, Facenet512, FbDeepFace, DeepID, DlibWrapper, ArcFace# Boosting
+from deepface.basemodels import Facenet512, ArcFace # VGGFace, OpenFace, Facenet, FbDeepFace, DeepID, DlibWrapper, Boosting
 from deepface.extendedmodels import Age, Gender, Race, Emotion
 from deepface.commons import functions, realtime, distance as dst
 
@@ -38,18 +38,18 @@ def build_model(model_name):
 	global model_obj #singleton design pattern
 
 	models = {
-		'VGG-Face': VGGFace.loadModel,
-		'OpenFace': OpenFace.loadModel,
-		'Facenet': Facenet.loadModel,
+# 		'VGG-Face': VGGFace.loadModel,
+# 		'OpenFace': OpenFace.loadModel,
+# 		'Facenet': Facenet.loadModel,
 		'Facenet512': Facenet512.loadModel,
-		'DeepFace': FbDeepFace.loadModel,
-		'DeepID': DeepID.loadModel,
-		'Dlib': DlibWrapper.loadModel,
+# 		'DeepFace': FbDeepFace.loadModel,
+# 		'DeepID': DeepID.loadModel,
+# 		'Dlib': DlibWrapper.loadModel,
 		'ArcFace': ArcFace.loadModel,
-		'Emotion': Emotion.loadModel,
-		'Age': Age.loadModel,
-		'Gender': Gender.loadModel,
-		'Race': Race.loadModel
+# 		'Emotion': Emotion.loadModel,
+# 		'Age': Age.loadModel,
+# 		'Gender': Gender.loadModel,
+# 		'Race': Race.loadModel
 	}
 
 	if not "model_obj" in globals():
