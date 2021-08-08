@@ -5,5 +5,3 @@ libice6
 libxext6
 libgl1-mesa-glx
 libgl1-mesa-dev
-opencv-python-headless
-opencv-contrib-python-headless
