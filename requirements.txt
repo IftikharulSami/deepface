@@ -2,9 +2,7 @@ numpy>=1.14.0
 pandas>=0.23.4
 gdown>=3.10.1
 tqdm>=4.30.0
-Pillow>=5.2.0
-opencv-python>=4.2.0.34
-opencv-contrib-python>=4.3.0.36
+Pillow>=5.2.0libgl1-mesa-devlibgl1-mesa-dev
 tensorflow-cpu==1.15.0
 keras==2.3.1
 Flask>=1.1.2
