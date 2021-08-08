@@ -12,8 +12,8 @@ import pandas as pd
 from tqdm import tqdm
 import pickle
 
-from deepface.basemodels import Facenet512, ArcFace # VGGFace, OpenFace, Facenet, FbDeepFace, DeepID, DlibWrapper, Boosting
-# from deepface.extendedmodels import Age, Gender, Race, Emotion
+from deepface.basemodels import Facenet512, ArcFace, VGGFace, OpenFace, Facenet, FbDeepFace, DeepID, DlibWrapper, Boosting
+from deepface.extendedmodels import Age, Gender, Race, Emotion
 from deepface.commons import functions, realtime, distance as dst
 
 import tensorflow as tf
