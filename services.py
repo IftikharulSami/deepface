@@ -16,7 +16,6 @@ class FR_Services ():
         tst_emb = np.array(tst_emb, dtype=np.float32)
         tst_emb = np.reshape(tst_emb, (1, self.dim_1))
         os.unlink(f'upload_Images/{test_image}')
-        print(self.train_emb.dtype)
         self.index.add(self.train_emb)
         D, I = self.index.search(tst_emb, 3)
         idx = I[0][0]
