@@ -1,7 +1,7 @@
 from flask import Flask, render_template, Response, request, url_for
 import os
 from services import FR_Services
-
+from deepface import DeepFace
 
 app = Flask(__name__)
 ser = FR_Services()
