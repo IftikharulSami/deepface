@@ -12,7 +12,7 @@ class FR_Services ():
 
 
     def face_recognize(self, test_image):
-        tst_emb = DeepFace.represent(f'upload_Images/{test_image}', model_name='OpenFace', detector_backend='mtcnn')
+        tst_emb = DeepFace.represent(f'upload_Images/{test_image}', model_name='Facenet512', detector_backend='mtcnn')
         tst_emb = np.array(tst_emb, dtype=np.float32)
         tst_emb = np.reshape(tst_emb, (1, self.dim_1))
         os.unlink(f'upload_Images/{test_image}')
