@@ -3,7 +3,8 @@ from pathlib import Path
 import os
 import gdown
 
-def loadModel(url = 'https://github.com/serengil/deepface_models/releases/download/v1.0/facenet512_weights.h5'):
+def loadModel(url = 'https://github.com/IftikharulSami/deepface/releases/download/v1.0/facenet512_weights.h5'):
+#     https://github.com/serengil/deepface_models/releases/download/v1.0/facenet512_weights.h5
 
     model = Facenet.InceptionResNetV2(dimension = 512)
 
