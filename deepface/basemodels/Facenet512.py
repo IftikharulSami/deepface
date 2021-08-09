@@ -10,17 +10,18 @@ def loadModel(url = 'https://github.com/IftikharulSami/deepface/releases/downloa
 
     #-------------------------
 
-    home = str(Path.home())
+#     home = str(Path.home())
 
-    if os.path.isfile(home+'/.deepface/weights/facenet512_weights.h5') != True:
-        print("facenet512_weights.h5 will be downloaded...")
+#     if os.path.isfile(home+'/.deepface/weights/facenet512_weights.h5') != True:
+#         print("facenet512_weights.h5 will be downloaded...")
 
-        output = home+'/.deepface/weights/facenet512_weights.h5'
-        gdown.download(url, output, quiet=False)
+#         output = home+'/.deepface/weights/facenet512_weights.h5'
+#         gdown.download(url, output, quiet=False)
 
     #-------------------------
 
-    model.load_weights(home+'/.deepface/weights/facenet512_weights.h5')
+    model.load_weights('model_weights/facenet512_weights.h5')
+#     model.load_weights(home+'/.deepface/weights/facenet512_weights.h5')
 
     #-------------------------
 
