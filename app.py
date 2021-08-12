@@ -22,7 +22,7 @@ def home():
                 unknown_image.save(os.path.join('upload_Images', unknown_image.filename))
                 st_time = timeit.default_timer()
                 with graph.as_default():
-                    label, dist = ser.face_recognize(unknown_image.filename, model)
+                    label, dist = ser.face_recognize(unknown_image.filename, my_model)
                 end_time = timeit.default_timer()
                 print('Elapsed Time: ', end_time - st_time)
                 return render_template('index.html', label=label, dist=dist)
