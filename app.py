@@ -11,12 +11,12 @@ import faiss
 
 
 graph = tf.get_default_graph()
-train_emb = np.load('weights/train_emb.npy')
+train_emb = np.load('Embeddings/train_emb.npy')
 (dim_0, dim_1) = np.shape(train_emb)
-train_names = np.load('weights/train_names.npy')
+train_names = np.load('Embeddings/train_names.npy')
 index =  faiss.IndexFlatL2(dim_1)
 index.add(train_emb)
-print(index.ntotal)
+# print(index.ntotal)
 
 app = Flask(__name__)
 # ser = FR_Services()
@@ -24,7 +24,7 @@ app = Flask(__name__)
 
 sess = tf.Session()
 set_session(sess)
-my_model = Open.loadModel()
+my_model = OpenFace.loadModel()
 
 
 def face_recognize(test_image):
