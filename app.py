@@ -7,6 +7,7 @@ from deepface import DeepFace
 import timeit
 from deepface.basemodels import OpenFace
 import faiss
+import numpy as np
 
 graph = tf.get_default_graph()
 
