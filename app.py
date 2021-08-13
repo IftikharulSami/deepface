@@ -8,6 +8,7 @@ from tensorflow.python.keras.backend import set_session
 from deepface.basemodels import OpenFace
 from deepface import DeepFace
 import faiss
+from PIL import Image
 
 
 graph = tf.get_default_graph()
@@ -27,11 +28,14 @@ set_session(sess)
 my_model = OpenFace.loadModel()
 
 
-def face_recognize(test_image):
+def face_recognize(test_image_path):
     global graph
     global sess
     print('Model Loaded.............')
-    path = f'upload_Images/{test_image}'
+    path = test_image_path
+    im = Image.open(path)
+    width, height = im.size
+    print(f'Width={width}, Height={height}')
     t_start = timeit.default_timer()
     with graph.as_default():
         set_session(sess)
@@ -48,12 +52,11 @@ def face_recognize(test_image):
         print('Image File Deleted.............')
     # print(self.train_emb.dtype)
     D, I = index.search(tst_emb, 3)
-    print(I)
+    # print(I)
     idx = I[0][0]
-    distance = D[0][0]
+    distance = D[0][0] / 10
     label = train_names[idx]
     return label, distance
-
 
 # app.config['Upload_Images'] = Upload
 @app.route('/', methods=['GET', 'POST'])
@@ -63,8 +66,15 @@ def home():
             if (request.files['unknown_image'] and not request.files['new_image']):
                 unknown_image = request.files['unknown_image']
                 unknown_image.save(os.path.join('upload_Images', unknown_image.filename))
+                im = Image.open(f'upload_Images/{unknown_image.filename}')
+                width, height = im.size
+                print(f'Width={width}, Height={height}')
+                new_size = (280, 320)
+                im = im.resize(new_size)
+                im.save(os.path.join(f'upload_Images/test.jpg'))
+                os.remove(f'upload_Images/{unknown_image.filename}')
                 st_time = timeit.default_timer()
-                label, dist = face_recognize(unknown_image.filename)
+                label, dist = face_recognize(f'upload_Images/test.jpg')
                 end_time = timeit.default_timer()
                 print('Elapsed Time: ', end_time - st_time)
                 return render_template('index.html', label=label, dist=dist)
