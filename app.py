@@ -5,7 +5,7 @@ import  numpy as np
 import timeit
 import tensorflow as tf
 from tensorflow.python.keras.backend import set_session
-from deepface.basemodels import OpenFace
+from deepface.basemodels import Facenet512
 from deepface import DeepFace
 import faiss
 from PIL import Image
@@ -25,7 +25,7 @@ app = Flask(__name__)
 
 sess = tf.Session()
 set_session(sess)
-my_model = OpenFace.loadModel()
+my_model = Facenet512.loadModel()
 
 
 def face_recognize(test_image_path):
