@@ -1,7 +1,6 @@
 from flask import Flask, render_template, Response, request, url_for
 import os
 import  numpy as np
-# from services import FR_Services
 import timeit
 import tensorflow as tf
 from tensorflow.python.keras.backend import set_session
@@ -20,7 +19,6 @@ index.add(train_emb)
 # print(index.ntotal)
 
 app = Flask(__name__)
-# ser = FR_Services()
 
 
 sess = tf.Session()
@@ -48,11 +46,7 @@ def face_recognize(test_image_path):
     tst_emb = np.reshape(tst_emb, (1, dim_1))
     print('Array Reshaped.............')
     os.remove(path)
-    if not path:
-        print('Image File Deleted.............')
-    # print(self.train_emb.dtype)
     D, I = index.search(tst_emb, 3)
-    # print(I)
     idx = I[0][0]
     distance = D[0][0] / 10
     label = train_names[idx]
@@ -82,7 +76,6 @@ def home():
                 new_image = request.files['new_image']
                 value = request.form['new_label']
                 value = value.title()
-                # reply = ser.retrain(new_image.filename, value)
                 return render_template('index.html')# , reply=reply
     return render_template('index.html')
 
