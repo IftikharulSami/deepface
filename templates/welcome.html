@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FR Home Page</title>
+    <style>
+    html, body{
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    height: 100%;
+    background: #F2F4F4;
+}
+#title {
+	margin-top: 30px;
+	display: block;
+	font-family: courier, fixed, monospace;
+	color: #FF5A00;
+	font-size 24px;
+}
+#buttons{
+    margin-top: 40px;
+    width: 650px;
+    height: 50px;
+    float: center;
+    margin-left: 33%;
+}
+.button{
+    height: 45px;
+    width: 200px;
+    font-size: 20px;
+}
+
+    </style>
+</head>
+<body>
+<div id="title" align="center"><h2>Face Recognition Home Page</h2></div>
+<div id="buttons">
+<form action="{{url_for('welcome')}}" method="POST" enctype="multipart/form-data" name="savedimage">
+    <input class="button" type="submit" value="Saved Image" name="submit">
+    <input class="button" type="submit" value="Live Stream" name="submit">
+    <input class="button" type="submit" value="Add Image" name="submit">
+</form>
+    </div>
+</body>
+</html>

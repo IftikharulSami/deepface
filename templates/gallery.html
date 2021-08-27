@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Gallery</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="static/css/camera.css" rel="stylesheet">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<div  id="home" style="font-size:20px; color: blue;margin-left: 40px; margin-top:30px"><a href="{{url_for('dashboard')}}">FR Home</a></div>
+<form action="{{url_for('addimagefromgallery')}}" method="POST" enctype="multipart/form-data">
+ <div id = "boxes">
+    <h1>Select Image from Local Storage</h1>
+
+    <div id = "live">
+    <h2>Select Image</h2>
+    <div id="upload"><input type="file" id="new-image" name="new-image" style="margin-left: 50px; font-size: 18px;" onchange="document.getElementById('photo').src = window.URL.createObjectURL(this.files[0])"></div>
+    </div>
+
+   <div id = "preview">
+    <h2>Image Preview</h2>
+       <div id="camera-preview"><img src="" id="photo"></img></div>
+       <h4 style="margin-left: 25px;">Re-Size Dimensions</h4>
+       <div id="txt-fields">
+           <label id="width">Width</label>
+           <input type="text" for="width" id="txt-width" value="480" disabled>
+           <label id="height">Height</label>
+           <input type="text" for="height" id="txt-height" value="640" disabled>
+           <input type="checkbox" id="enable-txt">Change
+       </div>
+    <div><input type="button" onclick="resizeImage()" id="resize-Btn" value="Resize" /></div>
+<!--    <p id="msg">Here</p>-->
+   </div>
+   <div id = "compressed">
+   <h2>Resized Image</h2>
+   <div id="resize"><img src="" id="resizedPhoto"></img></div>
+   </div>
+
+   <div id = "imageLabel">
+   <h2>Personal Information</h2>
+    <div id="per-info">
+   <label style="font-size: 18px;" for="name">Full Name:</label>
+	<input type="text" name="name" id="name" style="width: 200px;font-size:18px;"/>
+	<div id="info"><input type="button" name="info-submit" value="Submit" id="info-submit"/></div>
+        <br>
+        <label id="response" style="font-size: 18px; color: green:"></label>
+   </div>
+   </div>
+</div>
+</form>
+<script src="{{url_for('static', filename='js/gallery.js')}}"></script>
+</body>
+</html>

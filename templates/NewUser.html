@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FR - Add New Image from Camera</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<style>
+html, body{
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    height: 100%;
+    background: #F2F4F4;
+}
+#title {
+	margin-top: 30px;
+	display: block;
+	font-family: courier, fixed, monospace;
+	color: #FF5A00;
+}
+button {
+	margin: 8px;
+	font-weight: bold;
+	font-size: 20px;
+	height: 35px;
+}
+#page {
+	background-color: #EBF5FB;
+	margin-top: 25px;
+	margin-left: 5%;
+	margin-right:5%;
+	width: 90%;
+	height: 75%;
+	display: inline-block;
+	border: 2px solid;
+	border-color: #85C1E9;
+}
+#radio {
+	color: #0000FF;
+	-ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
+    transform: scale(1.4);
+}
+#radio-submit{
+	height: 25px;
+	width: 130px;
+	font-size: 16px;
+}
+</style>
+</head>
+<body>
+<div  id="home" style="font-size:20px; color: blue;margin-left: 40px; margin-top:30px"><a href="{{url_for('dashboard')}}">FR Home</a></div>
+<div id="title" align="center"><h2>Insert New Image in Face Recognition Database</h2></div>
+
+<div align="center" class="button" name="button" id="button">
+<!--<button id="camera" >Camera</button>-->
+<!--<button id="gallery">Gallery</button>-->
+<form action="{{url_for('loadDiv')}}" method="POST" enctype="multipart/form-data">
+  <div id="radio">
+  <input type="radio" value="camera" id="camera" name="options"><label for="camera">Camera</label>
+  <input type="radio" value="gallery" id="gallery" name="options"><label for="gallery">Gallery</label>
+    <input id="radio-submit" type="submit" value="Proceed!">
+</div></form>
+</div>
+<!--<div id="page" class="page" align="center"></div>-->
+</body>
+</html>
