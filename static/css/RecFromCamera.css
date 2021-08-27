@@ -1,0 +1,73 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    background: #EBF5FB;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.container{
+    margin-top: 10px;
+    width: 50%;
+    height: 75%;
+    border: 2px dashed green;
+    margin-left: 24%;
+}
+.title{
+    color: #FF5A00;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+}
+.inside{
+    margin-top: 15px;
+    width: 80%;
+    height: 725px;
+    margin-left: 9%;
+}
+.sub-title{
+    width: 80%;
+    height: 15px;
+    color: green;
+    text-align: center;
+    margin-left: 3%;
+    font-size: 20px;
+}
+.image{
+    margin-left: 0%;
+    margin-top: 25px;
+    height:460px;
+    width:780px;
+    border: 2px dotted blue;
+    float: left;
+    display: inline-block;
+}
+.run{
+    margin-left:200px;
+    margin-top: 15px;
+    font-size: 20px;
+    width: 250px;
+    height: 40px;
+}
+#video{
+    margin-top: 10px;
+    margin-left: 35px;
+    width: 400px;
+    height: 430px;
+    border: 2px solid blue;
+}
+#unknown_image{
+    margin-left: 50px;
+    width: 250px;
+    height: 300px;
+    border: 2px solid blue;
+}
+#capture-btn{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 180px;
+    height: 40px;
+    width: 100px;
+}
